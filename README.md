@@ -1,6 +1,6 @@
 # node Stack client
 
-This is a node.js client for (TransIP Stack cloud storage)[https://www.transip.nl/stack/]
+This is a node.js client for [TransIP Stack cloud storage](https://www.transip.nl/stack/)
 
 ## Installation
 
