@@ -11,17 +11,24 @@ $ npm install --save stack-client
 ### Example
 
 ```javascript
+const fs = require('fs');
+const zlib = require('zlib');
+
 const StackClient = require('stack-client');
 
 const client = new StackClient('https://example.stackstorage.com', 'user', 'pass');
 
-async function test() {
+const outputStream = client.createWriteStream('test.txt.gz', (err, res) => {
+  console.log('done writing!')
+})
 
-  await client.mkdir('test')
+const inputStream = fs.createReadStream('test.txt');
 
-  await client.mkdir('test')
+const gzip = zlib.createGzip({level: 3});
 
-}
+gzip.pipe(outputStream)
+inputStream.pipe(gzip)
+
 ```
 
 ## API
