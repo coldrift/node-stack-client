@@ -1,0 +1,28 @@
+{
+  "name": "stack-client",
+  "version": "0.1.0",
+  "description": "node.js client for TransIP Stack cloud storage",
+  "keywords": [
+    "cloud storage"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "build": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "author": "Valery Kholodkov",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2"
+  }
+}
