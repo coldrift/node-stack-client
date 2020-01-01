@@ -65,6 +65,16 @@ class StackClient {
 
       request.on('response', response => {
 
+        response.on('aborted', err => {
+          reject(err)
+        })
+
+        response.on('error', err => {
+          reject(err)
+        })
+
+        response.on('data', data => {})
+
         response.on('end', () => {
 
           if (response.statusCode > 299) {
