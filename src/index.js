@@ -147,6 +147,36 @@ class StackClient {
 
     return request
   }
+
+  createReadStream(path, cb) {
+
+    if(typeof(cb) !== 'function') {
+      cb = () => {}
+    }
+
+    const headers = clone(this.options.headers || {})
+
+    headers['Authorization'] = get_authorization_header(this.base_url)
+
+    const options = {
+      method: 'GET',
+      hostname: this.base_url.hostname,
+      path: WEBDAV_PATH + escape(path),
+      headers
+    };
+
+    const request = https.request(options);
+
+    request.on('response', response => {
+      cb(null, response);
+    });
+
+    request.on('error', err => {
+      cb(err);
+    });
+
+    request.end();
+  }
 }
 
 function get_authorization_header(base_url) {
