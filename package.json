@@ -8,7 +8,6 @@
   "main": "lib/index.js",
   "scripts": {
     "prepare": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
-    "prepublishOnly": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "build": "node_modules/babel-cli/bin/babel.js src --out-dir lib"
   },
   "babel": {
@@ -24,6 +23,7 @@
     "babel-preset-env": "^1.7.0"
   },
   "dependencies": {
-    "bluebird": "^3.7.2"
+    "bluebird": "^3.7.2",
+    "minimist": "^1.2.5"
   }
 }
