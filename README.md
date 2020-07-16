@@ -79,8 +79,8 @@ await client.mkdir('test/test')
 Use *delete(path)* to remove files and folders:
 
 ```javascript
-await client.remove('test/test')
-await client.remove('test')
+await client.delete('test/test')
+await client.delete('test')
 ```
 
 ## License
